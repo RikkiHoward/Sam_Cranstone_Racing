@@ -64,7 +64,7 @@ export default function Navigation() {
 
       {/* Mobile Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-t border-red-500/20 md:hidden">
-        <div className="grid grid-cols-6 h-16">
+        <div className="grid grid-cols-6 h-16 relative">
           {navigationItems.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -73,7 +73,7 @@ export default function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`flex flex-col items-center justify-center space-y-1 ${
+                className={`flex flex-col items-center justify-center space-y-1 relative ${
                   isActive ? 'text-red-500' : 'text-gray-400'
                 }`}
               >
@@ -81,9 +81,11 @@ export default function Navigation() {
                 <span className="text-xs">{item.name}</span>
                 {isActive && (
                   <motion.div
-                    className="absolute top-0 left-0 right-0 h-1 bg-red-500"
-                    layoutId="mobileActiveTab"
-                    initial={false}
+                    className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-red-500 rounded-full"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 )}
               </Link>

@@ -57,7 +57,8 @@ export default function SponsorsPage() {
             <Button asChild size="lg" className="bg-gradient-to-r from-red-500 to-blue-500 hover:from-red-600 hover:to-blue-600 text-white px-8 py-4 text-lg font-semibold rounded-2xl">
               <Link href="/contact?type=sponsor">
                 <Mail className="mr-2" size={20} />
-                Join the Team - Request Sponsorship Deck
+                <span className="hidden sm:inline">Join the Team - Request Sponsorship Deck</span>
+                <span className="sm:hidden">Request Sponsorship</span>
               </Link>
             </Button>
           </div>
@@ -150,7 +151,8 @@ export default function SponsorsPage() {
             </p>
             <Button asChild size="lg" className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 text-lg font-semibold rounded-2xl">
               <Link href="/contact?type=sponsor">
-                Get Sponsorship Details
+                <span className="hidden sm:inline">Get Sponsorship Details</span>
+                <span className="sm:hidden">Get Details</span>
               </Link>
             </Button>
           </motion.div>
