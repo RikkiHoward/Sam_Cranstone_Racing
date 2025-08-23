@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "bmcrc-rookie-1000",
+    "name": "BMCRC Rookie 1000",
+    "series": "Bemsee (BMCRC)",
+    "bike_rules": "Production-based 1000 cc motorcycles with safety regs and limited tuning per class.",
+    "tyres": "Typically Pirelli control tyres (event/series dependent).",
+    "format": "Weekend format usually includes qualifying and multiple sprint races.",
+    "focus": "Race-craft development, consistent pace, and safe progression for new licence holders."
+  },
+  {
+    "slug": "bsb-superstock-1000",
+    "name": "Pirelli National Superstock 1000",
+    "series": "British Superbikes (BSB)",
+    "bike_rules": "Near-stock 1000 cc machines with tightly controlled electronics and permitted safety upgrades.",
+    "tyres": "Pirelli control tyres.",
+    "format": "Practice, qualifying and one or more feature races (round dependent).",
+    "focus": "Production-based performance emphasising rider input and setup discipline."
+  }
+]

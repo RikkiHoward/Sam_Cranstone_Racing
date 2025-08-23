@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Fortis Racing",
+    "url": "https://tr.ee/f-h4DqMWKB",
+    "logo": "/sponsors/fortis-racing.png",
+    "tier": "headline",
+    "tagline": "Performance engineering & race support"
+  },
+  {
+    "name": "Leadbeatters Labour Ltd",
+    "url": "https://www.leadbeatterslabour.co.uk/",
+    "logo": "/sponsors/leadbeatters-labour.png",
+    "tier": "associate",
+    "tagline": "Skilled labour & construction support"
+  },
+  {
+    "name": "Ultra Vision Glazing",
+    "url": "https://www.ultravisionglazing.co.uk/",
+    "logo": "/sponsors/ultravision-glazing.png",
+    "tier": "associate",
+    "tagline": "Premium glazing & installations"
+  },
+  {
+    "name": "151's — Worn by Winners",
+    "url": "https://151s.co.uk/",
+    "logo": "/sponsors/151s.png",
+    "tier": "support",
+    "tagline": "Performance apparel for racers"
+  }
+]

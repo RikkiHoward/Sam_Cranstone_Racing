@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "brands-hatch-indy",
+    "name": "Brands Hatch Indy",
+    "location": "Fawkham, Kent, UK",
+    "length_km": 1.944,
+    "corners": 6,
+    "elevation_img": "/images/tracks/brands-indy-elevation.png",
+    "map_img": "/images/tracks/brands-indy-map.svg",
+    "sectors": ["Start/Finish – Paddock Hill", "Druids", "Graham Hill – Cooper – Surtees – Clearways"],
+    "notes": "Short, technical lap; traffic management in qualifying is key."
+  },
+  {
+    "slug": "donington-park-gp",
+    "name": "Donington Park GP",
+    "location": "Castle Donington, UK",
+    "length_km": 4.020,
+    "corners": 12,
+    "elevation_img": "/images/tracks/donington-elevation.png",
+    "map_img": "/images/tracks/donington-map.svg",
+    "sectors": ["Hollywood – Craner Curves – Old Hairpin", "McLeans – Coppice", "Fogarty Esses – Melbourne – Goddards"],
+    "notes": "High-flow sections reward commitment; wind can affect braking into Melbourne."
+  },
+  {
+    "slug": "snetterton-300",
+    "name": "Snetterton 300",
+    "location": "Norfolk, UK",
+    "length_km": 4.779,
+    "corners": 12,
+    "elevation_img": "/images/tracks/snetterton-elevation.png",
+    "map_img": "/images/tracks/snetterton-map.svg",
+    "sectors": ["Riches – Montreal", "Bentley Straight – Brundle – Nelson", "Coram – Murrays"],
+    "notes": "Long straights emphasise exit speed and aero tuck; manage rear tyre temps."
+  }
+]

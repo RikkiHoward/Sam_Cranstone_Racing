@@ -1,0 +1,99 @@
+[
+  {
+    "round": 1,
+    "slug": "brands-hatch-indy-r1-2025",
+    "date": "2025-03-15",
+    "end_date": "2025-03-16",
+    "circuit": "Brands Hatch Indy",
+    "series": "BMCRC MRO Powerbikes / Clubman 1000",
+    "class": "Clubman 1000 (C)",
+    "status": "completed",
+    "time": "14:31",
+    "result": "P3 Overall • P3 in Class",
+    "best_lap": "49.434s",
+    "notes": "Race 5 – 9 laps. Solid season opener with consistent pace throughout.",
+    "galleryTag": "brands-r1-2025"
+  },
+  {
+    "round": 2,
+    "slug": "silverstone-gp-r2-2025",
+    "date": "2025-04-12",
+    "circuit": "Silverstone GP",
+    "series": "BMCRC Rookie 1000",
+    "class": "Open",
+    "status": "upcoming",
+    "time": "15:15"
+  },
+  {
+    "round": 3,
+    "slug": "donington-park-r3-2025",
+    "date": "2025-05-10",
+    "circuit": "Donington Park",
+    "series": "BMCRC Rookie 1000",
+    "class": "Open",
+    "status": "upcoming",
+    "time": "13:45"
+  },
+  {
+    "round": 4,
+    "slug": "oulton-park-r4-2025",
+    "date": "2025-06-14",
+    "circuit": "Oulton Park",
+    "series": "Bemsee MRO",
+    "class": "1000cc",
+    "status": "upcoming",
+    "time": "16:00"
+  },
+  {
+    "round": 8,
+    "slug": "cadwell-park-r8-2024",
+    "date": "2024-09-22",
+    "circuit": "Cadwell Park",
+    "series": "BMCRC Rookie 1000",
+    "class": "Open",
+    "result": "P6 Overall",
+    "status": "completed",
+    "best_lap": "1:32.845s",
+    "notes": "Mountain course debut. Challenging track conditions but improved throughout the weekend.",
+    "galleryTag": "cadwell-r8-2024"
+  },
+  {
+    "round": 9,
+    "slug": "brands-hatch-gp-r9-2024",
+    "date": "2024-10-06",
+    "circuit": "Brands Hatch GP",
+    "series": "Bemsee MRO",
+    "class": "1000cc",
+    "result": "P4 Overall • P2 in Class",
+    "status": "completed",
+    "best_lap": "1:26.892s",
+    "notes": "Strong finish to secure class podium. Personal best lap time at the GP circuit.",
+    "galleryTag": "brands-gp-r9-2024"
+  },
+  {
+    "round": 6,
+    "slug": "snetterton-300-r6-2024",
+    "date": "2024-08-18",
+    "circuit": "Snetterton 300",
+    "series": "BMCRC Rookie 1000",
+    "class": "Open",
+    "result": "P8 Overall",
+    "status": "completed",
+    "best_lap": "1:49.123s",
+    "notes": "High-speed technical circuit. Focused on consistency and learning.",
+    "galleryTag": "snetterton-r6-2024"
+  },
+  {
+    "round": 5,
+    "slug": "mallory-park-r5-2024",
+    "date": "2024-07-21",
+    "circuit": "Mallory Park",
+    "series": "Bemsee MRO",
+    "class": "1000cc",
+    "result": "P5 Overall • P1 in Class",
+    "status": "completed",
+    "best_lap": "59.678s",
+    "notes": "First class win! Perfect conditions and great setup from the team.",
+    "galleryTag": "mallory-r5-2024"
+  }
+]
