@@ -22,7 +22,7 @@ export default function Hero() {
         {/* Mobile background */}
         <div className="block md:hidden absolute inset-0">
           <img
-            src="/wheelie_mobile.jpeg"
+            src="/Wheelie_mobile.jpeg"
             alt="Sam Cranstone racing hero mobile"
             className="w-full h-full object-cover object-top"
           />
