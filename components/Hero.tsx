@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar, Handshake } from 'lucide-react';
+import { Calendar, Handshake, Camera, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import SponsorStrip from './SponsorStrip';
 import Link from 'next/link';
@@ -77,6 +77,28 @@ export default function Hero() {
                 <Link href="/contact?type=sponsor">
                   <Handshake className="mr-2" size={20} />
                   Become a Sponsor
+                </Link>
+              </Button>
+            </motion.div>
+
+            {/* Quick Access Links for Mobile */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.6 }}
+              className="flex justify-center gap-4 mt-6 md:hidden"
+            >
+              <Button asChild variant="ghost" size="sm" className="text-gray-400 hover:text-white">
+                <Link href="/class">
+                  <Users className="mr-2" size={16} />
+                  Racing Classes
+                </Link>
+              </Button>
+              
+              <Button asChild variant="ghost" size="sm" className="text-gray-400 hover:text-white">
+                <Link href="/gallery">
+                  <Camera className="mr-2" size={16} />
+                  Photo Gallery
                 </Link>
               </Button>
             </motion.div>

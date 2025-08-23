@@ -4,9 +4,20 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Home, Calendar, Bike, Users, Camera, Mail, Navigation as NavigationIcon } from 'lucide-react';
+import { Home, Calendar, Bike, Users, Camera, Mail, Navigation as NavigationIcon, Trophy } from 'lucide-react';
 
-const navigationItems = [
+const desktopNavigationItems = [
+  { name: 'Home', href: '/', icon: Home },
+  { name: 'Calendar', href: '/calendar', icon: Calendar },
+  { name: 'Tracks', href: '/tracks', icon: NavigationIcon },
+  { name: 'Class', href: '/class', icon: Trophy },
+  { name: 'Bike', href: '/bike', icon: Bike },
+  { name: 'Gallery', href: '/gallery', icon: Camera },
+  { name: 'Sponsors', href: '/sponsors', icon: Users },
+  { name: 'Contact', href: '/contact', icon: Mail },
+];
+
+const mobileNavigationItems = [
   { name: 'Home', href: '/', icon: Home },
   { name: 'Calendar', href: '/calendar', icon: Calendar },
   { name: 'Tracks', href: '/tracks', icon: NavigationIcon },
@@ -34,7 +45,7 @@ export default function Navigation() {
             </Link>
             
             <div className="flex space-x-8">
-              {navigationItems.map((item) => (
+              {desktopNavigationItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
@@ -63,7 +74,7 @@ export default function Navigation() {
       {/* Mobile Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-t border-red-500/20 md:hidden">
         <div className="flex h-16 relative">
-          {navigationItems.map((item) => {
+          {mobileNavigationItems.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
             
