@@ -18,6 +18,6 @@
     { "label": "Exhaust", "x": 15, "y": 44, "content": "Full titanium system for weight saving and throttle response." },
     { "label": "Suspension", "x": 52, "y": 34, "content": "Öhlins NPX25/30 + TTX36 adjusted per circuit for braking support and exit grip." },
     { "label": "Brakes", "x": 70, "y": 70, "content": "Brembo Stylema calipers with race pads for consistent feel deep into turns." },
-    { "label": "Electronics", "x": 59, "y": 28, "content": "IMU-driven TC/EB/WC refined across the race distance to manage tyre life." }
+    { "label": "Electronics", "x": 54, "y": 36, "content": "IMU-driven TC/EB/WC refined across the race distance to manage tyre life." }
   ]
 }
