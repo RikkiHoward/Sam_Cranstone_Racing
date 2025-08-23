@@ -11,9 +11,7 @@ const navigationItems = [
   { name: 'Calendar', href: '/calendar', icon: Calendar },
   { name: 'Tracks', href: '/tracks', icon: NavigationIcon },
   { name: 'Bike', href: '/bike', icon: Bike },
-  { name: 'Class', href: '/class', icon: Users },
   { name: 'Sponsors', href: '/sponsors', icon: Users },
-  { name: 'Gallery', href: '/gallery', icon: Camera },
   { name: 'Contact', href: '/contact', icon: Mail },
 ];
 
@@ -64,7 +62,7 @@ export default function Navigation() {
 
       {/* Mobile Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-t border-red-500/20 md:hidden">
-        <div className="grid grid-cols-6 h-16 relative">
+        <div className="flex h-16 relative">
           {navigationItems.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -73,12 +71,12 @@ export default function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`flex flex-col items-center justify-center space-y-1 relative ${
+                className={`flex-1 flex flex-col items-center justify-center space-y-1 relative px-1 ${
                   isActive ? 'text-red-500' : 'text-gray-400'
                 }`}
               >
-                <Icon size={20} />
-                <span className="text-xs">{item.name}</span>
+                <Icon size={18} />
+                <span className="text-[10px] leading-tight">{item.name}</span>
                 {isActive && (
                   <motion.div
                     className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-red-500 rounded-full"
