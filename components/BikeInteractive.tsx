@@ -1,11 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
+
+// Direct JSON import for static export
+import bikeData from '../app/data/bike.json';
 
 interface BikeData {
   model: string;
@@ -21,23 +25,8 @@ interface BikeData {
 }
 
 export default function BikeInteractive() {
-  const [bikeData, setBikeData] = useState<BikeData | null>(null);
+  const bike = useMemo(() => bikeData as BikeData, []);
   const [selectedHotspot, setSelectedHotspot] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch('/data/bike.json')
-      .then(res => res.json())
-      .then(data => setBikeData(data))
-      .catch(err => console.error('Failed to load bike data:', err));
-  }, []);
-
-  if (!bikeData) {
-    return (
-      <div className="flex items-center justify-center h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500"></div>
-      </div>
-    );
-  }
 
   return (
     <div className="grid lg:grid-cols-2 gap-12">
@@ -50,8 +39,8 @@ export default function BikeInteractive() {
       >
         <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-900 border border-white/10">
           <img
-            src={bikeData.image}
-            alt={bikeData.model}
+            src={bike.image}
+            alt={bike.model}
             className="w-full h-full object-cover object-center"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
@@ -67,7 +56,7 @@ export default function BikeInteractive() {
           />
           
           {/* Hotspots */}
-          {bikeData.hotspots.map((hotspot, index) => (
+          {bike.hotspots.map((hotspot, index) => (
             <Dialog key={hotspot.label}>
               <DialogTrigger asChild>
                 <button
@@ -94,7 +83,7 @@ export default function BikeInteractive() {
           
           {/* Bike Number Badge */}
           <Badge className="absolute top-4 right-4 bg-red-500 text-white text-lg px-3 py-1">
-            {bikeData.number}
+            {bike.number}
           </Badge>
         </div>
 
@@ -123,7 +112,7 @@ export default function BikeInteractive() {
             <Card className="bg-gray-900/50 border-gray-800">
               <CardContent className="p-6">
                 <div className="space-y-4">
-                  {Object.entries(bikeData.spec).map(([key, value]) => (
+                  {Object.entries(bike.spec).map(([key, value]) => (
                     <div key={key} className="border-b border-gray-700/50 pb-3 last:border-b-0">
                       <dt className="text-gray-400 text-sm font-medium capitalize mb-1">
                         {key.replace(/_/g, ' ')}
@@ -138,7 +127,7 @@ export default function BikeInteractive() {
           
           <TabsContent value="hotspots" className="mt-6">
             <div className="space-y-3">
-              {bikeData.hotspots.map((hotspot, index) => (
+              {bike.hotspots.map((hotspot, index) => (
                 <Card 
                   key={hotspot.label} 
                   className={`bg-gray-900/50 border-gray-800 cursor-pointer hover:border-red-500/50 transition-colors ${

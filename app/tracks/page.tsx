@@ -1,32 +1,37 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Ruler, Navigation } from 'lucide-react';
 
+// Direct JSON import for static export
+import tracksData from '../data/tracks.json';
+
 interface Track {
-  slug: string;
+  slug?: string;
   name: string;
-  location: string;
-  length_km: number;
-  corners: number;
-  elevation_img: string;
-  map_img: string;
-  sectors: string[];
-  notes: string;
+  location?: string;
+  length_km?: number;
+  corners?: number;
+  elevation_img?: string;
+  map_img?: string;
+  sectors?: string[];
+  notes?: string;
 }
 
-export default function TracksPage() {
-  const [tracks, setTracks] = useState<Track[]>([]);
+// Helper to create stable slugs
+const slugify = (s: string) =>
+  s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
-  useEffect(() => {
-    fetch('/data/tracks.json')
-      .then(res => res.json())
-      .then(data => setTracks(data))
-      .catch(err => console.error('Failed to load tracks:', err));
+export default function TracksPage() {
+  const tracks = useMemo(() => {
+    return (tracksData as Track[]).map((track) => ({
+      ...track,
+      slug: track.slug ?? slugify(track.name),
+    }));
   }, []);
 
   return (
@@ -65,7 +70,7 @@ export default function TracksPage() {
                     <CardContent className="p-0">
                       <div className="aspect-video bg-gray-800 relative overflow-hidden">
                         <img
-                          src={track.map_img}
+                          src={track.map_img || '#'}
                           alt={`${track.name} track layout`}
                           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                           onError={(e) => {
@@ -90,18 +95,18 @@ export default function TracksPage() {
                         
                         <div className="flex items-center gap-2 text-gray-400 mb-4">
                           <MapPin size={14} />
-                          <span className="text-sm">{track.location}</span>
+                          <span className="text-sm">{track.location || 'UK'}</span>
                         </div>
                         
                         <div className="flex justify-between items-center">
                           <Badge variant="outline" className="border-blue-500/50 text-blue-400">
                             <Ruler size={12} className="mr-1" />
-                            {track.length_km} km
+                            {track.length_km || '—'} km
                           </Badge>
                           
                           <Badge variant="outline" className="border-green-500/50 text-green-400">
                             <Navigation size={12} className="mr-1" />
-                            {track.corners} corners
+                            {track.corners || '—'} corners
                           </Badge>
                         </div>
                       </div>

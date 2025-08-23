@@ -1,7 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
+
+// Direct JSON import for static export
+import sponsorsData from '../app/data/sponsors.json';
 
 interface Sponsor {
   name: string;
@@ -11,15 +14,7 @@ interface Sponsor {
 }
 
 export default function SponsorStrip() {
-  const [sponsors, setSponsors] = useState<Sponsor[]>([]);
-
-  useEffect(() => {
-    // Load sponsors data
-    fetch('/data/sponsors.json')
-      .then(res => res.json())
-      .then(data => setSponsors(data))
-      .catch(err => console.error('Failed to load sponsors:', err));
-  }, []);
+  const sponsors = useMemo(() => sponsorsData as Sponsor[], []);
 
   return (
     <div className="bg-black/80 backdrop-blur-sm border-t border-red-500/20 py-4">

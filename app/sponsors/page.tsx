@@ -1,11 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Mail } from 'lucide-react';
 import Link from 'next/link';
+
+// Direct JSON import for static export
+import sponsorsData from '../data/sponsors.json';
 
 interface Sponsor {
   name: string;
@@ -22,14 +25,7 @@ const tierConfig = {
 };
 
 export default function SponsorsPage() {
-  const [sponsors, setSponsors] = useState<Sponsor[]>([]);
-
-  useEffect(() => {
-    fetch('/data/sponsors.json')
-      .then(res => res.json())
-      .then(data => setSponsors(data))
-      .catch(err => console.error('Failed to load sponsors:', err));
-  }, []);
+  const sponsors = useMemo(() => sponsorsData as Sponsor[], []);
 
   const sponsorsByTier = sponsors.reduce((acc, sponsor) => {
     if (!acc[sponsor.tier]) acc[sponsor.tier] = [];

@@ -1,10 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Trophy, Settings, Timer, Target } from 'lucide-react';
+
+// Direct JSON import for static export
+import classesData from '../data/classes.json';
 
 interface RacingClass {
   slug: string;
@@ -17,14 +20,7 @@ interface RacingClass {
 }
 
 export default function ClassPage() {
-  const [classes, setClasses] = useState<RacingClass[]>([]);
-
-  useEffect(() => {
-    fetch('/data/classes.json')
-      .then(res => res.json())
-      .then(data => setClasses(data))
-      .catch(err => console.error('Failed to load classes:', err));
-  }, []);
+  const classes = useMemo(() => classesData as RacingClass[], []);
 
   const getClassIcon = (index: number) => {
     const icons = [Trophy, Settings, Timer, Target];

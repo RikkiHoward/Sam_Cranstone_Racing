@@ -1,10 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Play, ExternalLink } from 'lucide-react';
+
+// Direct JSON import for static export
+import galleryData from '../data/gallery.json';
 
 interface GalleryItem {
   src: string;
@@ -14,15 +18,8 @@ interface GalleryItem {
 }
 
 export default function GalleryPage() {
-  const [gallery, setGallery] = useState<GalleryItem[]>([]);
+  const gallery = useMemo(() => galleryData as GalleryItem[], []);
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
-
-  useEffect(() => {
-    fetch('/data/gallery.json')
-      .then(res => res.json())
-      .then(data => setGallery(data))
-      .catch(err => console.error('Failed to load gallery:', err));
-  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black pt-20 md:pt-24 pb-20">

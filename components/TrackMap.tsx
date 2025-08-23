@@ -5,15 +5,15 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin, Ruler, Navigation } from 'lucide-react';
 
 interface Track {
-  slug: string;
+  slug?: string;
   name: string;
-  location: string;
-  length_km: number;
-  corners: number;
-  elevation_img: string;
-  map_img: string;
-  sectors: string[];
-  notes: string;
+  location?: string;
+  length_km?: number;
+  corners?: number;
+  elevation_img?: string;
+  map_img?: string;
+  sectors?: string[];
+  notes?: string;
 }
 
 interface TrackMapProps {
@@ -29,7 +29,7 @@ export default function TrackMap({ track }: TrackMapProps) {
           <CardContent className="p-0">
             <div className="aspect-[4/3] bg-gray-800 relative">
               <img
-                src={track.map_img}
+                src={track.map_img || '#'}
                 alt={`${track.name} track map`}
                 className="w-full h-full object-contain"
                 onError={(e) => {
@@ -57,7 +57,7 @@ export default function TrackMap({ track }: TrackMapProps) {
             </h3>
             <div className="aspect-[8/3] bg-gray-800 rounded-xl relative">
               <img
-                src={track.elevation_img}
+                src={track.elevation_img || '#'}
                 alt={`${track.name} elevation profile`}
                 className="w-full h-full object-contain"
                 onError={(e) => {
@@ -84,7 +84,7 @@ export default function TrackMap({ track }: TrackMapProps) {
           <CardContent className="p-6">
             <div className="flex items-center gap-2 mb-4">
               <MapPin className="text-red-400" size={18} />
-              <span className="text-gray-400">{track.location}</span>
+              <span className="text-gray-400">{track.location || 'UK'}</span>
             </div>
             
             <div className="space-y-4">
@@ -92,14 +92,14 @@ export default function TrackMap({ track }: TrackMapProps) {
                 <span className="text-gray-400">Length</span>
                 <Badge variant="outline" className="border-blue-500/50 text-blue-400">
                   <Ruler size={14} className="mr-1" />
-                  {track.length_km} km
+                  {track.length_km || '—'} km
                 </Badge>
               </div>
               
               <div className="flex justify-between items-center">
                 <span className="text-gray-400">Corners</span>
                 <Badge variant="outline" className="border-green-500/50 text-green-400">
-                  {track.corners}
+                  {track.corners || '—'}
                 </Badge>
               </div>
             </div>
@@ -107,31 +107,35 @@ export default function TrackMap({ track }: TrackMapProps) {
         </Card>
 
         {/* Sectors */}
-        <Card className="bg-gray-900/50 border-gray-800 rounded-2xl">
-          <CardContent className="p-6">
-            <h3 className="text-white font-semibold mb-4">Track Sectors</h3>
-            <div className="space-y-3">
-              {track.sectors.map((sector, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <Badge className="bg-red-500/20 text-red-400 min-w-fit">
-                    S{index + 1}
-                  </Badge>
-                  <span className="text-gray-300 text-sm">{sector}</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        {track.sectors && track.sectors.length > 0 && (
+          <Card className="bg-gray-900/50 border-gray-800 rounded-2xl">
+            <CardContent className="p-6">
+              <h3 className="text-white font-semibold mb-4">Track Sectors</h3>
+              <div className="space-y-3">
+                {track.sectors.map((sector, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <Badge className="bg-red-500/20 text-red-400 min-w-fit">
+                      S{index + 1}
+                    </Badge>
+                    <span className="text-gray-300 text-sm">{sector}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Notes */}
-        <Card className="bg-blue-500/10 border-blue-500/20 rounded-2xl">
-          <CardContent className="p-6">
-            <h3 className="text-blue-400 font-semibold mb-3">Track Notes</h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              {track.notes}
-            </p>
-          </CardContent>
-        </Card>
+        {track.notes && (
+          <Card className="bg-blue-500/10 border-blue-500/20 rounded-2xl">
+            <CardContent className="p-6">
+              <h3 className="text-blue-400 font-semibold mb-3">Track Notes</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                {track.notes}
+              </p>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );
