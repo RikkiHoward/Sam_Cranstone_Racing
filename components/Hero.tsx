@@ -44,7 +44,7 @@ export default function Hero() {
             className="text-center md:text-left"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6 font-orbitron leading-tight">
-              <span className="bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent">CHASING VICTORY,</span>
+              <span className="bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent">CHASING VICTORY</span>
               <br />
               <span className="text-white">TOGETHER</span>
             </h1>
