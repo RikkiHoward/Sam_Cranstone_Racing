@@ -31,21 +31,21 @@ export default function BikePage() {
                 This CBR1000RR-R Fireblade SP has been expertly tuned and prepared by the team at MSS Performance, 
                 ensuring optimal performance and reliability for competitive racing across all UK circuits.
               </p>
-              <div className="flex justify-center gap-4">
+              <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4">
                 <a 
                   href="https://www.mssperformance.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
+                  className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-center"
                 >
                   www.mssperformance.com
                 </a>
-                <span className="text-gray-500">•</span>
+                <span className="text-gray-500 hidden sm:inline">•</span>
                 <a 
                   href="https://instagram.com/mssperformance" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
+                  className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-center"
                 >
                   @mssperformance
                 </a>
