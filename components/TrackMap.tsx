@@ -48,33 +48,6 @@ export default function TrackMap({ track }: TrackMapProps) {
           </CardContent>
         </Card>
 
-        {/* Elevation Profile */}
-        <Card className="bg-gray-900/50 border-gray-800 rounded-2xl overflow-hidden mt-6">
-          <CardContent className="p-4">
-            <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
-              <Navigation size={18} />
-              Elevation Profile
-            </h3>
-            <div className="aspect-[8/3] bg-gray-800 rounded-xl relative">
-              <img
-                src={track.elevation_img || '#'}
-                alt={`${track.name} elevation profile`}
-                className="w-full h-full object-contain"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = 'data:image/svg+xml;base64,' + btoa(`
-                    <svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="100%" height="100%" fill="#374151"/>
-                      <text x="50%" y="50%" text-anchor="middle" dy="0.3em" fill="#9ca3af" font-family="Arial" font-size="14">
-                        Elevation profile coming soon
-                      </text>
-                    </svg>
-                  `);
-                }}
-              />
-            </div>
-          </CardContent>
-        </Card>
       </div>
 
       {/* Track Information */}
