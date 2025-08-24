@@ -8,6 +8,8 @@ import racesJson from '../../data/races.json';
 import TrackMap from '@/components/TrackMap';
 import RaceCard from '@/components/RaceCard';
 import MotionWrapper from '@/components/MotionWrapper';
+import TrackElevation from '@/components/TrackElevation';
+import { getElevation } from '@/data/elevations';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar } from 'lucide-react';
 import Link from 'next/link';
@@ -103,6 +105,19 @@ export default function TrackPage({ params }: { params: { slug: string } }) {
 
             {/* Interactive map (client component) */}
             <TrackMap track={track} />
+
+            {/* Elevation Profile */}
+            <MotionWrapper 
+              initial={{ opacity: 0, y: 30 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ delay: 0.6 }}
+              className="mt-10"
+            >
+              <TrackElevation 
+                slug={getSlug(track)} 
+                dataset={getElevation(getSlug(track))} 
+              />
+            </MotionWrapper>
 
             {/* Race History */}
             {races.length > 0 && (

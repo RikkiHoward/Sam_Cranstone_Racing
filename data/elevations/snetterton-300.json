@@ -1,0 +1,20 @@
+{
+  "length": 4779,
+  "x": [0,200,400,600,800,1000,1200,1500,1800,2100,2400,2700,3000,3300,3600,3900,4200,4500,4779],
+  "y": [18,17,17,18,19,20,21,21,20,19,18,18,19,20,21,21,20,19,18],
+  "corners": [
+    { "name": "Riches", "dist": 200 },
+    { "name": "Montreal", "dist": 600 },
+    { "name": "Palmer", "dist": 1000 },
+    { "name": "Agostini", "dist": 1500 },
+    { "name": "Hamilton", "dist": 2100 },
+    { "name": "Oggies", "dist": 2600 },
+    { "name": "Williams", "dist": 3000 },
+    { "name": "Bentley Straight", "dist": 3450 },
+    { "name": "Brundle", "dist": 3700 },
+    { "name": "Nelson", "dist": 3800 },
+    { "name": "Bomb Hole", "dist": 4050 },
+    { "name": "Coram", "dist": 4250 },
+    { "name": "Murrays", "dist": 4550 }
+  ]
+}
