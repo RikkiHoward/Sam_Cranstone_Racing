@@ -83,8 +83,16 @@ export default function Navigation() {
                 key={item.name}
                 href={item.href}
                 className={`flex-1 flex flex-col items-center justify-center space-y-1 relative px-1 transition-colors ${
-                  showMore ? 'text-blue-500' : 'text-gray-400 hover:text-gray-300'
+                  isActive ? 'text-red-500' : 'text-gray-400 hover:text-gray-300'
                 }`}
               >
                 <Icon size={18} />
                 <span className="text-[10px] leading-tight">{item.name}</span>
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
+    </>
+  );
+}
