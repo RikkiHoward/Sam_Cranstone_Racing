@@ -43,7 +43,7 @@ export default function GalleryPage() {
             </p>
 
             <Button asChild variant="outline" className="border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white rounded-2xl">
-              <a href="https://instagram.com/samcranstone" target="_blank" rel="noopener noreferrer">
+              <a href="https://instagram.com/samcranstoneracing" target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-2" size={18} />
                 Follow on Instagram
               </a>
@@ -97,15 +97,15 @@ export default function GalleryPage() {
             </p>
             <div className="grid md:grid-cols-3 gap-4 text-center">
               <div className="p-4">
-                <div className="text-2xl font-bold text-red-400 mb-2">2.5K+</div>
+                <div className="text-2xl font-bold text-red-400 mb-2">400+</div>
                 <div className="text-gray-400">Followers</div>
               </div>
               <div className="p-4">
-                <div className="text-2xl font-bold text-blue-400 mb-2">150+</div>
+                <div className="text-2xl font-bold text-blue-400 mb-2">100+</div>
                 <div className="text-gray-400">Race Photos</div>
               </div>
               <div className="p-4">
-                <div className="text-2xl font-bold text-green-400 mb-2">50+</div>
+                <div className="text-2xl font-bold text-green-400 mb-2">Race Action</div>
                 <div className="text-gray-400">Videos</div>
               </div>
             </div>
