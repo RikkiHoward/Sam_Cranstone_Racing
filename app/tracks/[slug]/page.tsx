@@ -10,8 +10,6 @@ import RaceCard from '@/components/RaceCard';
 import MotionWrapper from '@/components/MotionWrapper';
 import TrackElevation from '@/components/TrackElevation';
 import { getElevation } from '@/data/elevations';
-import TrackElevation from '@/components/TrackElevation';
-import { getElevation } from '@/data/elevations';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar } from 'lucide-react';
 import Link from 'next/link';
