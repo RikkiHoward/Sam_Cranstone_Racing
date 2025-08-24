@@ -34,5 +34,11 @@
     "tier": "support",
     "tagline": "Utility & Civil Enginnering Specialists"
   }
-  
+  {
+    "name": "MSS Performance",
+    "url": "https://www.mssperformance.com",
+    "logo": "/mss-Logo-black.png",
+    "tier": "support",
+    "tagline": "Track bike builds & performance race parts."
+  }
 ]
