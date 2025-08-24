@@ -79,42 +79,35 @@ function SponsorPill({
       href={sponsor.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 
+      className={`group inline-flex items-center rounded-2xl border border-white/10 bg-white/5 px-3 py-2 
                   text-sm text-gray-300 hover:text-white transition
                   hover:border-red-500/40 hover:bg-white/[0.08] backdrop-blur-sm`}
     >
-      {/* Logo Avatar */}
-      <span
-        className={`mr-3 inline-flex h-8 w-8 md:h-10 md:w-10 items-center justify-center overflow-hidden 
-                    rounded-full ring-1 ${tierRing} bg-white/90 group-hover:bg-white transition-colors`}
-        aria-hidden
-      >
-        {/* Logo Image */}
-        {sponsor.logo && !imgTried ? (
-          <img
-            src={sponsor.logo}
-            alt=""
-            className="h-full w-full object-contain p-1 group-hover:scale-105 transition-transform duration-200"
-            onLoad={() => {
-              setImgOk(true);
-              setImgTried(true);
-            }}
-            onError={() => {
-              setImgOk(false);
-              setImgTried(true); // fall back to initials
-            }}
-            loading="lazy"
-            decoding="async"
-          />
-        ) : null}
+      {/* Logo Image */}
+      {sponsor.logo && !imgTried ? (
+        <img
+          src={sponsor.logo}
+          alt={`${sponsor.name} logo`}
+          className="h-6 w-auto mr-3 object-contain group-hover:scale-105 transition-transform duration-200"
+          onLoad={() => {
+            setImgOk(true);
+            setImgTried(true);
+          }}
+          onError={() => {
+            setImgOk(false);
+            setImgTried(true); // fall back to initials
+          }}
+          loading="lazy"
+          decoding="async"
+        />
+      ) : null}
 
-        {/* Fallback Initials */}
-        {!imgOk && (
-          <span className="text-xs font-bold text-gray-800 select-none">
-            {initials}
-          </span>
-        )}
-      </span>
+      {/* Fallback Initials (only if no logo or logo failed) */}
+      {!imgOk && (
+        <span className={`mr-3 inline-flex h-6 w-8 items-center justify-center rounded-lg ring-1 ${tierRing} bg-white/90 text-xs font-bold text-gray-800 select-none`}>
+          {initials}
+        </span>
+      )}
 
       {/* Pill text */}
       <span className="whitespace-nowrap">
