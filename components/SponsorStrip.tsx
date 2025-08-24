@@ -80,15 +80,15 @@ function SponsorPill({
       target="_blank"
       rel="noopener noreferrer"
       className={`group inline-flex items-center rounded-2xl border border-white/10 bg-white/5 px-3 py-2 
-                  text-sm text-gray-300 hover:text-white transition
+                  text-sm text-gray-300 hover:text-white transition flex-shrink-0
                   hover:border-red-500/40 hover:bg-white/[0.08] backdrop-blur-sm`}
     >
       {/* Logo Image */}
-      {sponsor.logo && !imgTried ? (
+      {sponsor.logo && (
         <img
           src={sponsor.logo}
           alt={`${sponsor.name} logo`}
-          className="h-6 w-auto mr-3 object-contain group-hover:scale-105 transition-transform duration-200"
+          className="h-6 w-auto mr-2 object-contain group-hover:scale-105 transition-transform duration-200 flex-shrink-0"
           onLoad={() => {
             setImgOk(true);
             setImgTried(true);
@@ -99,18 +99,19 @@ function SponsorPill({
           }}
           loading="lazy"
           decoding="async"
+          style={{ display: imgTried && !imgOk ? 'none' : 'block' }}
         />
-      ) : null}
+      )}
 
       {/* Fallback Initials (only if no logo or logo failed) */}
-      {!imgOk && (
-        <span className={`mr-3 inline-flex h-6 w-8 items-center justify-center rounded-lg ring-1 ${tierRing} bg-white/90 text-xs font-bold text-gray-800 select-none`}>
+      {imgTried && !imgOk && (
+        <span className={`mr-2 inline-flex h-6 w-8 items-center justify-center rounded-lg ring-1 ${tierRing} bg-white/90 text-xs font-bold text-gray-800 select-none flex-shrink-0`}>
           {initials}
         </span>
       )}
 
       {/* Pill text */}
-      <span className="whitespace-nowrap">
+      <span className="whitespace-nowrap text-xs md:text-sm font-medium">
         {sponsor.name}
       </span>
     </motion.a>
