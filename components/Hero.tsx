@@ -34,6 +34,11 @@ export default function Hero() {
         <div className="absolute inset-0 speed-lines" />
       </div>
 
+      {/* Mobile Sponsor Strip - Top Position */}
+      <div className="relative z-10 md:hidden">
+        <SponsorStrip />
+      </div>
+
       {/* Content */}
       <div className="relative z-10 flex-1 flex flex-col justify-center px-6 pt-16 md:pt-20 pb-4 min-h-0">
         <div className="max-w-7xl mx-auto w-full">
@@ -106,8 +111,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Sponsor Strip */}
-      <div className="relative z-10 mt-auto shrink-0 mb-16 md:mb-0">
+      {/* Desktop Sponsor Strip - Bottom Position */}
+      <div className="relative z-10 mt-auto shrink-0 mb-16 md:mb-0 hidden md:block">
         <SponsorStrip />
       </div>
     </div>
