@@ -83,18 +83,18 @@ function SponsorPill({
                   text-xs md:text-sm text-gray-300 hover:text-white transition
                   hover:border-red-500/40 hover:bg-white/[0.08] backdrop-blur-sm`}
     >
-      {/* Avatar (logo later, initials now) */}
+      {/* Logo Avatar */}
       <span
-        className={`mr-2 inline-flex h-5 w-5 md:h-6 md:w-6 items-center justify-center overflow-hidden 
-                    rounded-full ring-1 ${tierRing} bg-gray-800/70`}
+        className={`mr-2 md:mr-3 inline-flex h-6 w-6 md:h-7 md:w-7 items-center justify-center overflow-hidden 
+                    rounded-full ring-1 ${tierRing} bg-white/90 group-hover:bg-white transition-colors`}
         aria-hidden
       >
-        {/* Only render <img> if we haven’t failed it */}
+        {/* Logo Image */}
         {sponsor.logo && !imgTried ? (
           <img
             src={sponsor.logo}
             alt=""
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain p-0.5 group-hover:scale-110 transition-transform duration-200"
             onLoad={() => {
               setImgOk(true);
               setImgTried(true);
@@ -108,9 +108,9 @@ function SponsorPill({
           />
         ) : null}
 
-        {/* Fallback (or preferred for now) */}
+        {/* Fallback Initials */}
         {!imgOk && (
-          <span className="text-[9px] md:text-[10px] font-semibold text-gray-200 select-none">
+          <span className="text-[8px] md:text-[9px] font-bold text-gray-800 select-none">
             {initials}
           </span>
         )}
