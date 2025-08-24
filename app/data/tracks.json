@@ -17,7 +17,7 @@
     "length_km": 4.020,
     "corners": 12,
     "elevation_img": "/images/tracks/donington-elevation.png",
-    "map_img": "/images/tracks/donington-map.svg",
+    "map_img": "/doningtonpark-gp-map.jpg",
     "sectors": ["Hollywood – Craner Curves – Old Hairpin", "McLeans – Coppice", "Fogarty Esses – Melbourne – Goddards"],
     "notes": "High-flow sections reward commitment; wind can affect braking into Melbourne."
   },
@@ -27,8 +27,8 @@
     "location": "Norfolk, UK",
     "length_km": 4.779,
     "corners": 12,
-    "elevation_img": "/images/tracks/snetterton-elevation.png",
-    "map_img": "/images/tracks/snetterton-map.svg",
+    "elevation_img": "/",
+    "map_img": "/snetterton-circuit-map.jpeg",
     "sectors": ["Riches – Montreal", "Bentley Straight – Brundle – Nelson", "Coram – Murrays"],
     "notes": "Long straights emphasise exit speed and aero tuck; manage rear tyre temps."
   }
