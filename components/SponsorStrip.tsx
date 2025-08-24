@@ -79,13 +79,13 @@ function SponsorPill({
       href={sponsor.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1.5 
-                  text-xs md:text-sm text-gray-300 hover:text-white transition
+      className={`group inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 
+                  text-sm text-gray-300 hover:text-white transition
                   hover:border-red-500/40 hover:bg-white/[0.08] backdrop-blur-sm`}
     >
       {/* Logo Avatar */}
       <span
-        className={`mr-2 md:mr-3 inline-flex h-6 w-6 md:h-7 md:w-7 items-center justify-center overflow-hidden 
+        className={`mr-3 inline-flex h-8 w-8 md:h-10 md:w-10 items-center justify-center overflow-hidden 
                     rounded-full ring-1 ${tierRing} bg-white/90 group-hover:bg-white transition-colors`}
         aria-hidden
       >
@@ -94,7 +94,7 @@ function SponsorPill({
           <img
             src={sponsor.logo}
             alt=""
-            className="h-full w-full object-contain p-0.5 group-hover:scale-110 transition-transform duration-200"
+            className="h-full w-full object-contain p-1 group-hover:scale-105 transition-transform duration-200"
             onLoad={() => {
               setImgOk(true);
               setImgTried(true);
@@ -110,7 +110,7 @@ function SponsorPill({
 
         {/* Fallback Initials */}
         {!imgOk && (
-          <span className="text-[8px] md:text-[9px] font-bold text-gray-800 select-none">
+          <span className="text-xs font-bold text-gray-800 select-none">
             {initials}
           </span>
         )}
