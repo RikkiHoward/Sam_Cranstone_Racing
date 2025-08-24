@@ -82,26 +82,9 @@ export default function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`flex-1 flex flex-col items-center justify-center space-y-1 relative px-1 ${
-                  isActive ? 'text-red-500' : 'text-gray-400'
+                className={`flex-1 flex flex-col items-center justify-center space-y-1 relative px-1 transition-colors ${
+                  showMore ? 'text-blue-500' : 'text-gray-400 hover:text-gray-300'
                 }`}
               >
                 <Icon size={18} />
                 <span className="text-[10px] leading-tight">{item.name}</span>
-                {isActive && (
-                  <motion.div
-                    className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-red-500 rounded-full"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  />
-                )}
-              </Link>
-            );
-          })}
-        </div>
-      </nav>
-    </>
-  );
-}
