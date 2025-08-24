@@ -119,18 +119,6 @@ export default function TrackPage({ params }: { params: { slug: string } }) {
               />
             </MotionWrapper>
 
-            {/* Elevation Profile */}
-            <MotionWrapper 
-              initial={{ opacity: 0, y: 30 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 0.6 }}
-              className="mt-10"
-            >
-              <TrackElevation 
-                slug={getSlug(track)} 
-                dataset={getElevation(getSlug(track))} 
-              />
-            </MotionWrapper>
 
             {/* Race History */}
             {races.length > 0 && (
