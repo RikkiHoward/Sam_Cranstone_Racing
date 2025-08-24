@@ -2,35 +2,35 @@
   {
     "name": "Fortis Racing",
     "url": "https://www.fortisracing.co.uk",
-    "logo": "/sponsors/fortis-racing.png",
+    "logo": "/Fortis-Racing-Logo.avif",
     "tier": "headline",
     "tagline": "Performance engineering & race support"
   },
   {
     "name": "Leadbeatters Labour Ltd",
     "url": "https://www.leadbeatterslabour.co.uk/",
-    "logo": "/sponsors/leadbeatters-labour.png",
+    "logo": "/LeadBeatters-Labour-Logo.webp",
     "tier": "associate",
     "tagline": "Skilled labour & construction support"
   },
   {
     "name": "Ultra Vision Glazing",
     "url": "https://www.ultravisionglazing.co.uk/",
-    "logo": "/sponsors/ultravision-glazing.png",
+    "logo": "/ultravision-logo.webp",
     "tier": "associate",
     "tagline": "Premium glazing & installations"
   },
   {
     "name": "151's — Worn by Winners",
     "url": "https://151s.co.uk/",
-    "logo": "/sponsors/151s.png",
+    "logo": "/15`1s-Logo.avif",
     "tier": "support",
     "tagline": "Performance apparel for racers"
   },
   {
     "name": "WCB Utilities",
     "url": "https://www.wcbutilities.co.uk",
-    "logo": "/sponsors/WCB.png",
+    "logo": "/WCB-Logo.jpg",
     "tier": "support",
     "tagline": "Utility & Civil Enginnering Specialists"
   }
