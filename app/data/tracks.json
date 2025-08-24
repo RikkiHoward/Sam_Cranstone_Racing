@@ -6,7 +6,7 @@
     "length_km": 1.944,
     "corners": 6,
     "elevation_img": "/images/tracks/brands-indy-elevation.png",
-    "map_img": "/images/tracks/brands-indy-map.svg",
+    "map_img": "/public/images/tracks/Brands_Hatch_Indy-1024x629.webp",
     "sectors": ["Start/Finish – Paddock Hill", "Druids", "Graham Hill – Cooper – Surtees – Clearways"],
     "notes": "Short, technical lap; traffic management in qualifying is key."
   },
