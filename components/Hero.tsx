@@ -17,7 +17,8 @@ export default function Hero() {
             src="/wheelie_hero_desktop.jpeg"
             alt="Sam Cranstone racing hero"
             className="w-full h-full object-cover object-center"
-            priority="true"
+            loading="eager"
+            decoding="async"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src = 'data:image/svg+xml;base64,' + btoa(`
@@ -37,7 +38,8 @@ export default function Hero() {
             src="/Wheelie_mobile.jpeg"
             alt="Sam Cranstone racing hero mobile"
             className="w-full h-full object-cover object-top"
-            priority="true"
+            loading="eager"
+            decoding="async"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src = 'data:image/svg+xml;base64,' + btoa(`
