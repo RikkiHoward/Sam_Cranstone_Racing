@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, Handshake, Camera, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import SponsorStrip from './SponsorStrip';
+import SponsorsMarquee from './SponsorsMarquee';
 import Link from 'next/link';
 
 export default function Hero() {
@@ -62,7 +62,7 @@ export default function Hero() {
 
       {/* Mobile Sponsor Strip - Top Position */}
       <div className="relative z-10 md:hidden">
-        <SponsorStrip />
+        <SponsorsMarquee />
       </div>
 
       {/* Content */}
@@ -139,7 +139,7 @@ export default function Hero() {
 
       {/* Desktop Sponsor Strip - Bottom Position */}
       <div className="relative z-10 mt-auto shrink-0 mb-16 md:mb-0 hidden md:block">
-        <SponsorStrip />
+        <SponsorsMarquee />
       </div>
     </div>
   );

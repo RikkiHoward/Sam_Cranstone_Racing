@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import SponsorStrip from '@/components/SponsorStrip';
+import SponsorsMarquee from '@/components/SponsorsMarquee';
 import RaceCard from '@/components/RaceCard';
 import type { Race } from '@/types/race';
 import { formatDateRange } from '@/lib/format';
@@ -77,6 +77,7 @@ export default function EventPageClient({
         </div>
 
         <SponsorStrip />
+        <SponsorsMarquee />
       </div>
 
       {/* Content */}
