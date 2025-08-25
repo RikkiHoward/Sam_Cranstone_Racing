@@ -63,29 +63,19 @@ export default function InstagramGrid() {
               alt={p.alt || 'Instagram post'}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               loading="lazy"
+             decoding="async"
               width={800}
               height={800}
               onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = 'data:image/svg+xml;base64,' + btoa(`
+               const t = e.currentTarget as HTMLImageElement;
+               t.src = 'data:image/svg+xml;base64,' + btoa(`
                   <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
                     <rect width="100%" height="100%" fill="#1f2937"/>
-                    <text x="50%" y="50%" text-anchor="middle" dy="0.3em" fill="#9ca3af" font-family="Arial" font-size="16">
-                      Instagram thumbnail
+                   <text x="50%" y="50%" fill="#9ca3af" font-size="28" text-anchor="middle" dominant-baseline="middle">
+                     Image unavailable
                     </text>
                   </svg>
-                `);
-              }}
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = 'data:image/svg+xml;base64,' + btoa(`
-                  <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100%" height="100%" fill="#1f2937"/>
-                    <text x="50%" y="50%" text-anchor="middle" dy="0.3em" fill="#9ca3af" font-family="Arial" font-size="16">
-                      Instagram thumbnail
-                    </text>
-                  </svg>
-                `);
+               `);
               }}
             />
             {/* Overlay + affordance */}
