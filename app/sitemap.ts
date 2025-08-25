@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
-import tracks from '@/data/tracks.json';
-import races from '@/data/races.json';
+import tracks from './data/tracks.json';
+import races from './data/races.json';
 
 type Track = { slug?: string; name?: string };
 type Race = { slug?: string; date: string; circuit: string };
