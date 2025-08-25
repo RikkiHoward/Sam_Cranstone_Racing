@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-// @ts-expect-error JSON typed at runtime
 import items from '@/data/instagram.json';
 import { SOCIAL } from '@/lib/site';
 
