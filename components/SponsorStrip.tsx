@@ -30,52 +30,52 @@ export default function SponsorStrip() {
         {/* Subtle top accent line */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
         
-        <div className="flex items-center justify-center whitespace-nowrap animate-[scrollSponsor_50s_linear_infinite] hover:[animation-play-state:paused]">
+        <div className="flex items-center justify-center whitespace-nowrap animate-[scrollSponsor_30s_linear_infinite] hover:[animation-play-state:paused] active:[animation-play-state:paused] touch-manipulation">
           {duplicatedSponsors.map((sponsor, index) => (
             <div
               key={`${sponsor.name}-${index}`}
-              className="flex-shrink-0 group mx-4 md:mx-6"
+              className="flex-shrink-0 group mx-3 md:mx-6 touch-manipulation"
             >
               {sponsor.url ? (
                 <a
                   href={sponsor.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block relative p-3 md:p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-500 hover:scale-110 hover:bg-white/10 hover:border-red-500/30 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-red-500/50 group"
+                  className="block relative p-2 md:p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/10 hover:border-red-500/30 active:scale-105 active:bg-white/15 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-red-500/50 group touch-manipulation"
                   aria-label={`Visit ${sponsor.name} website`}
                 >
                   {/* Subtle glow effect */}
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/0 via-red-500/0 to-blue-500/0 group-hover:from-red-500/5 group-hover:via-transparent group-hover:to-blue-500/5 transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/0 via-red-500/0 to-blue-500/0 group-hover:from-red-500/5 group-hover:via-transparent group-hover:to-blue-500/5 group-active:from-red-500/10 group-active:to-blue-500/10 transition-all duration-300" />
                   <img
                     src={sponsor.logo}
                     alt={`${sponsor.name} logo`}
-                    className="relative h-8 md:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain filter brightness-90 contrast-110 group-hover:brightness-100 group-hover:contrast-125 transition-all duration-500"
+                    className="relative h-6 md:h-10 w-auto max-w-[80px] md:max-w-[120px] object-contain filter brightness-90 contrast-110 group-hover:brightness-100 group-hover:contrast-125 group-active:brightness-110 transition-all duration-300"
                     loading="lazy"
                     decoding="async"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
                       const fallback = document.createElement('div');
-                      fallback.className = 'h-8 md:h-10 flex items-center justify-center bg-gray-800 rounded-lg px-2';
+                      fallback.className = 'h-6 md:h-10 flex items-center justify-center bg-gray-800 rounded-lg px-2';
                       fallback.innerHTML = `<span class="text-white font-bold text-xs">${sponsor.name}</span>`;
                       target.parentElement?.appendChild(fallback);
                     }}
                   />
                 </a>
               ) : (
-                <div className="relative p-3 md:p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-500 hover:scale-110 hover:bg-white/10 group">
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/0 via-red-500/0 to-blue-500/0 group-hover:from-red-500/5 group-hover:via-transparent group-hover:to-blue-500/5 transition-all duration-500" />
+                <div className="relative p-2 md:p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/10 active:scale-105 active:bg-white/15 group touch-manipulation">
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/0 via-red-500/0 to-blue-500/0 group-hover:from-red-500/5 group-hover:via-transparent group-hover:to-blue-500/5 group-active:from-red-500/10 group-active:to-blue-500/10 transition-all duration-300" />
                   <img
                     src={sponsor.logo}
                     alt={`${sponsor.name} logo`}
-                    className="relative h-8 md:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain filter brightness-90 contrast-110 group-hover:brightness-100 group-hover:contrast-125 transition-all duration-500"
+                    className="relative h-6 md:h-10 w-auto max-w-[80px] md:max-w-[120px] object-contain filter brightness-90 contrast-110 group-hover:brightness-100 group-hover:contrast-125 group-active:brightness-110 transition-all duration-300"
                     loading="lazy"
                     decoding="async"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
                       const fallback = document.createElement('div');
-                      fallback.className = 'h-8 md:h-10 flex items-center justify-center bg-gray-800 rounded-lg px-2';
+                      fallback.className = 'h-6 md:h-10 flex items-center justify-center bg-gray-800 rounded-lg px-2';
                       fallback.innerHTML = `<span class="text-white font-bold text-xs">${sponsor.name}</span>`;
                       target.parentElement?.appendChild(fallback);
                     }}
