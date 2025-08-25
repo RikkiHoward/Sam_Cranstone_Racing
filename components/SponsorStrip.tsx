@@ -16,8 +16,8 @@ interface Sponsor {
 export default function SponsorStrip() {
   const sponsors = sponsorData as Sponsor[];
   
-  // Double the sponsors array for seamless infinite scroll
-  const duplicatedSponsors = [...sponsors, ...sponsors];
+  // Triple the sponsors array for seamless infinite scroll
+  const duplicatedSponsors = [...sponsors, ...sponsors, ...sponsors];
 
   return (
     <motion.div
@@ -30,11 +30,11 @@ export default function SponsorStrip() {
         {/* Subtle top accent line */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
         
-        <div className="flex items-center justify-center whitespace-nowrap animate-[scrollSponsor_40s_linear_infinite] hover:[animation-play-state:paused]">
+        <div className="flex items-center justify-center whitespace-nowrap animate-[scrollSponsor_30s_linear_infinite] hover:[animation-play-state:paused]">
           {duplicatedSponsors.map((sponsor, index) => (
             <div
               key={`${sponsor.name}-${index}`}
-              className="flex-shrink-0 group mx-8 md:mx-12"
+              className="flex-shrink-0 group mx-6 md:mx-8"
             >
               {sponsor.url ? (
                 <a
@@ -49,7 +49,7 @@ export default function SponsorStrip() {
                   <img
                     src={sponsor.logo}
                     alt={`${sponsor.name} logo`}
-                    className="relative h-8 md:h-10 w-auto max-w-[120px] md:max-w-[140px] object-contain filter brightness-90 contrast-110 group-hover:brightness-100 group-hover:contrast-125 transition-all duration-500"
+                    className="relative h-8 md:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain filter brightness-90 contrast-110 group-hover:brightness-100 group-hover:contrast-125 transition-all duration-500"
                   />
                 </a>
               ) : (
@@ -58,7 +58,7 @@ export default function SponsorStrip() {
                   <img
                     src={sponsor.logo}
                     alt={`${sponsor.name} logo`}
-                    className="relative h-8 md:h-10 w-auto max-w-[120px] md:max-w-[140px] object-contain filter brightness-90 contrast-110 group-hover:brightness-100 group-hover:contrast-125 transition-all duration-500"
+                    className="relative h-8 md:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain filter brightness-90 contrast-110 group-hover:brightness-100 group-hover:contrast-125 transition-all duration-500"
                   />
                 </div>
               )}
