@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
+export const dynamic = 'force-static';
+
 export default function Error500() {
   return (
     <div className="min-h-[70vh] grid place-items-center px-6 py-24 text-center">
