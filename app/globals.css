@@ -32,6 +32,7 @@
   0% { background-position: 0 0; }
   100% { background-position: 20px 0; }
 }
+}
 
 @keyframes scrollSponsor {
   0% { transform: translateX(0); }
