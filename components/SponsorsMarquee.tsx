@@ -36,7 +36,7 @@ export default function SponsorsMarquee() {
 
   return (
     <section 
-      className="w-full bg-gradient-to-r from-black/95 via-gray-900/90 to-black/95 backdrop-blur-md py-3 md:py-4 border-t border-red-500/10"
+      className="w-full bg-gradient-to-r from-black/95 via-gray-900/90 to-black/95 backdrop-blur-md py-2 md:py-4 border-t border-red-500/10"
       aria-labelledby="sponsors-heading"
     >
       <div className="max-w-7xl mx-auto px-4">
@@ -45,7 +45,7 @@ export default function SponsorsMarquee() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-3"
+          className="text-center mb-2 md:mb-3 hidden md:block"
         >
           <h2 
             id="sponsors-heading" 
@@ -63,8 +63,8 @@ export default function SponsorsMarquee() {
         {/* Marquee Container */}
         <div className="relative overflow-hidden">
           {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 h-full w-8 md:w-12 bg-gradient-to-r from-black/95 via-gray-900/60 to-transparent pointer-events-none z-10" />
-          <div className="absolute right-0 top-0 h-full w-8 md:w-12 bg-gradient-to-l from-black/95 via-gray-900/60 to-transparent pointer-events-none z-10" />
+          <div className="absolute left-0 top-0 h-full w-4 md:w-12 bg-gradient-to-r from-black/95 via-gray-900/60 to-transparent pointer-events-none z-10" />
+          <div className="absolute right-0 top-0 h-full w-4 md:w-12 bg-gradient-to-l from-black/95 via-gray-900/60 to-transparent pointer-events-none z-10" />
           
           {/* Scrolling sponsors */}
           <motion.div
@@ -81,16 +81,39 @@ export default function SponsorsMarquee() {
             {duplicatedSponsors.map((sponsor, index) => (
               <div
                 key={`${sponsor.name}-${index}`}
-                className="flex-shrink-0 mx-2 md:mx-3 group"
+                className="flex-shrink-0 mx-1 md:mx-3 group"
               >
                 <a
                   href={sponsor.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 rounded-lg"
+                  className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 rounded-lg md:rounded-lg"
                   aria-label={`Visit ${sponsor.name} - ${sponsor.tagline}`}
                 >
-                  <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 rounded-lg p-2 md:p-3 transition-all duration-300 hover:bg-gray-700/50 hover:border-red-500/30 hover:scale-105 group-focus:scale-105 group-focus:bg-gray-700/50 group-focus:border-red-500/30">
+                  {/* Mobile: Logo only */}
+                  <div className="md:hidden p-1 transition-all duration-300 hover:scale-110 group-focus:scale-110">
+                    <img
+                      src={sponsor.logo}
+                      alt={`${sponsor.name} logo`}
+                      className="h-4 w-auto max-w-[40px] object-contain filter grayscale group-hover:grayscale-0 group-focus:grayscale-0 transition-all duration-300"
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => {
+                        const target = e.currentTarget as HTMLImageElement;
+                        target.style.display = 'none';
+                        if (target.parentElement) {
+                          target.parentElement.innerHTML = `
+                            <div class="h-4 flex items-center justify-center bg-gray-700 rounded text-[8px] px-1">
+                              <span class="text-white font-bold">${sponsor.name.split(' ')[0]}</span>
+                            </div>
+                          `;
+                        }
+                      }}
+                    />
+                  </div>
+
+                  {/* Desktop: Full card */}
+                  <div className="hidden md:block bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 rounded-lg p-2 md:p-3 transition-all duration-300 hover:bg-gray-700/50 hover:border-red-500/30 hover:scale-105 group-focus:scale-105 group-focus:bg-gray-700/50 group-focus:border-red-500/30">
                     {/* Logo */}
                     <div className="mb-2 flex justify-center">
                       <img
@@ -129,6 +152,7 @@ export default function SponsorsMarquee() {
                     <p className="text-gray-400 text-[10px] md:text-xs text-center leading-tight group-hover:text-gray-300 transition-colors">
                       {sponsor.tagline}
                     </p>
+                  </div>
                   </div>
                 </a>
               </div>
