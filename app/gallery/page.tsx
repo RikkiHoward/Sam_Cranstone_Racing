@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Play, ExternalLink } from 'lucide-react';
-import Instagram from '@/components/Instagram';
 import InstagramGrid from '@/components/InstagramGrid';
 
 // Direct JSON import for static export
@@ -93,49 +92,6 @@ export default function GalleryPage() {
             transition={{ delay: 1.0 }}
           >
             <InstagramGrid />
-          </motion.div>
-
-          {/* Instagram Embed Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="space-y-8"
-          >
-            {/* Featured Instagram Post */}
-            <div className="text-center bg-gradient-to-r from-gray-900/50 to-gray-800/50 rounded-2xl p-8 border border-gray-700">
-              <h2 className="text-3xl font-bold text-white mb-6">Latest from the Track</h2>
-              <p className="text-gray-300 mb-8">
-                Check out this recent racing content from @ksg_racing_photography
-              </p>
-              
-              <Instagram
-                url="https://www.instagram.com/reel/DKagesENXFZ/"
-                className="mx-auto my-8 max-w-lg w-full"
-              />
-            </div>
-
-            {/* Follow Section */}
-            <div className="text-center bg-gradient-to-r from-gray-900/50 to-gray-800/50 rounded-2xl p-8 border border-gray-700">
-              <h2 className="text-3xl font-bold text-white mb-4">Follow the Journey</h2>
-              <p className="text-gray-300 mb-6">
-                Get the latest updates, race highlights, and behind-the-scenes content on Instagram.
-              </p>
-              <div className="grid md:grid-cols-3 gap-4 text-center mb-6">
-                <div className="p-4">
-                  <div className="text-2xl font-bold text-red-400 mb-2">400+</div>
-                  <div className="text-gray-400">Followers</div>
-                </div>
-                <div className="p-4">
-                  <div className="text-2xl font-bold text-blue-400 mb-2">100+</div>
-                  <div className="text-gray-400">Race Photos</div>
-                </div>
-                <div className="p-4">
-                  <div className="text-2xl font-bold text-green-400 mb-2">Race Action</div>
-                  <div className="text-gray-400">Videos</div>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </motion.div>
       </div>
