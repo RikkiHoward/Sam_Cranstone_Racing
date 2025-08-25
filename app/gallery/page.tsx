@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Play, ExternalLink } from 'lucide-react';
 import Instagram from '@/components/Instagram';
+import InstagramGrid from '@/components/InstagramGrid';
 
 // Direct JSON import for static export
 import galleryData from '../data/gallery.json';
@@ -84,6 +85,15 @@ export default function GalleryPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Instagram Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0 }}
+          >
+            <InstagramGrid />
+          </motion.div>
 
           {/* Instagram Embed Section */}
           <motion.div

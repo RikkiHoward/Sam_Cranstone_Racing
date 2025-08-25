@@ -6,7 +6,7 @@ export const SITE_URL =
   'https://sam-cranstone-racing.netlify.app';
 
 export const SOCIAL = {
-  instagram: 'https://www.instagram.com/samcranstone',
+  instagram: 'https://www.instagram.com/samcranstoneracing/',
   x: 'https://twitter.com/',
   youtube: 'https://youtube.com/',
   email: 'sam@samcranstone.com',
