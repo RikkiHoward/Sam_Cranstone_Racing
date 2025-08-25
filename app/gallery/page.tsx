@@ -64,11 +64,33 @@ export default function GalleryPage() {
                 <Card 
                   className="relative aspect-square rounded-2xl overflow-hidden cursor-pointer group bg-gray-900 border-gray-800 hover:border-red-500/50 transition-all"
                   onClick={() => setSelectedItem(item)}
+                 role="button"
+                 tabIndex={0}
+                 onKeyDown={(e) => {
+                   if (e.key === 'Enter' || e.key === ' ') {
+                     e.preventDefault();
+                     setSelectedItem(item);
+                   }
+                 }}
+                 aria-label={`View ${item.alt}`}
                 >
                   <img
                     src={item.src}
                     alt={item.alt}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                   loading="lazy"
+                   decoding="async"
+                   onError={(e) => {
+                     const target = e.target as HTMLImageElement;
+                     target.src = 'data:image/svg+xml;base64,' + btoa(`
+                       <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+                         <rect width="100%" height="100%" fill="#1f2937"/>
+                         <text x="50%" y="50%" text-anchor="middle" dy="0.3em" fill="#9ca3af" font-family="Arial" font-size="16">
+                           Image unavailable
+                         </text>
+                       </svg>
+                     `);
+                   }}
                   />
                   
                   {item.type === 'video' && (
@@ -116,6 +138,19 @@ export default function GalleryPage() {
               src={selectedItem.src}
               alt={selectedItem.alt}
               className="w-full h-auto max-h-full object-contain rounded-2xl"
+             loading="eager"
+             decoding="async"
+             onError={(e) => {
+               const target = e.target as HTMLImageElement;
+               target.src = 'data:image/svg+xml;base64,' + btoa(`
+                 <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+                   <rect width="100%" height="100%" fill="#1f2937"/>
+                   <text x="50%" y="50%" text-anchor="middle" dy="0.3em" fill="#9ca3af" font-family="Arial" font-size="18">
+                     Image unavailable
+                   </text>
+                 </svg>
+               `);
+             }}
             />
             <button
               onClick={() => setSelectedItem(null)}

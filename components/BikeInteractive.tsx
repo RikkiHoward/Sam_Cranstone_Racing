@@ -42,6 +42,8 @@ export default function BikeInteractive() {
             src={bike.image}
             alt={bike.model}
             className="w-full h-full object-cover object-center"
+            loading="eager"
+            decoding="async"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src = 'data:image/svg+xml;base64,' + btoa(`

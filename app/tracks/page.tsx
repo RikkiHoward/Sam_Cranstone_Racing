@@ -73,6 +73,8 @@ export default function TracksPage() {
                           src={track.map_img || '#'}
                           alt={`${track.name} track layout`}
                           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                         loading="lazy"
+                         decoding="async"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             target.src = 'data:image/svg+xml;base64,' + btoa(`

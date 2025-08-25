@@ -99,15 +99,18 @@ export default function SponsorsPage() {
                                 src={sponsor.logo}
                                 alt={sponsor.name}
                                 className="h-20 w-auto mx-auto object-contain"
+                               loading="lazy"
+                               decoding="async"
                                 onError={(e) => {
-                                  // Fallback to text if image fails
                                   const target = e.target as HTMLImageElement;
                                   target.style.display = 'none';
-                                  target.parentElement!.innerHTML = `
+                                  if (target.parentElement) {
+                                    target.parentElement.innerHTML = `
                                     <div class="h-20 flex items-center justify-center bg-gray-800 rounded-lg">
                                       <span class="text-white font-bold text-lg">${sponsor.name}</span>
                                     </div>
-                                  `;
+                                    `;
+                                  }
                                 }}
                               />
                             </div>

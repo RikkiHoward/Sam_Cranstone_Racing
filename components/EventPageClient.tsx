@@ -125,7 +125,24 @@ export default function EventPageClient({
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {eventGallery.slice(0, 8).map((item, i) => (
                   <motion.div key={i} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 * i }} whileHover={{ scale: 1.05 }} className="aspect-square rounded-xl overflow-hidden">
-                    <img src={item.src} alt={item.alt} className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
+                    <img 
+                      src={item.src} 
+                      alt={item.alt} 
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = 'data:image/svg+xml;base64,' + btoa(`
+                          <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#1f2937"/>
+                            <text x="50%" y="50%" text-anchor="middle" dy="0.3em" fill="#9ca3af" font-family="Arial" font-size="14">
+                              Image unavailable
+                            </text>
+                          </svg>
+                        `);
+                      }}
+                    />
                   </motion.div>
                 ))}
               </div>

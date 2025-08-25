@@ -32,6 +32,8 @@ export default function TrackMap({ track }: TrackMapProps) {
                 src={track.map_img || '#'}
                 alt={`${track.name} track map`}
                 className="w-full h-full object-contain"
+               loading="lazy"
+               decoding="async"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.src = 'data:image/svg+xml;base64,' + btoa(`

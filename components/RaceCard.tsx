@@ -107,7 +107,7 @@ export default function RaceCard({ race, index, showViewButton = true }: RaceCar
 
                 {/* View Event Button */}
                 {race.slug && showViewButton && (
-                  <Button asChild variant="outline" size="sm" className="border-gray-600 text-gray-400 hover:border-red-500 hover:text-red-400 mt-2">
+                  <Button asChild variant="outline" size="sm" className="border-gray-600 text-gray-400 hover:border-red-500 hover:text-red-400 mt-2 focus-ring">
                     <Link href={`/calendar/${race.slug}`}>
                       View Event
                       <ExternalLink size={14} className="ml-2" />

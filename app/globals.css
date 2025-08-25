@@ -24,10 +24,15 @@
   }
 
   /* Better focus styles for accessibility */
-  :focus-visible {
+  *:focus-visible {
     outline: 2px solid #3b82f6;
     outline-offset: 2px;
   }
+
+   /* Smooth scrolling for all elements */
+   * {
+     scroll-behavior: smooth;
+   }
 }
 
 @layer utilities {
@@ -40,6 +45,11 @@
   .font-orbitron {
     font-family: 'Orbitron', monospace;
   }
+
+   /* Improved button focus states */
+   .focus-ring {
+     @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900;
+   }
 }
 
 @keyframes speedLines {

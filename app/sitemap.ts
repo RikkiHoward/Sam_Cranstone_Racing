@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
-import tracks from './data/tracks.json';
-import races from './data/races.json';
+import tracksData from './data/tracks.json';
+import racesData from './data/races.json';
 
 type Track = { slug?: string; name?: string };
 type Race = { slug?: string; date: string; circuit: string };
@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Track detail pages
-  (tracks as Track[]).forEach((t) => {
+  (tracksData as Track[]).forEach((t) => {
     const slug = t.slug || (t.name ? safe(t.name) : null);
     if (!slug) return;
     urls.push({
@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Calendar event pages
-  (races as Race[]).forEach((r) => {
+  (racesData as Race[]).forEach((r) => {
     const slug = r.slug || `${r.date}-${safe(r.circuit)}`;
     urls.push({
       url: `${SITE_URL}/calendar/${slug}`,

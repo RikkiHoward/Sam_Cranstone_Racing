@@ -50,6 +50,16 @@ export default function SponsorStrip() {
                     src={sponsor.logo}
                     alt={`${sponsor.name} logo`}
                     className="relative h-8 md:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain filter brightness-90 contrast-110 group-hover:brightness-100 group-hover:contrast-125 transition-all duration-500"
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const fallback = document.createElement('div');
+                      fallback.className = 'h-8 md:h-10 flex items-center justify-center bg-gray-800 rounded-lg px-2';
+                      fallback.innerHTML = `<span class="text-white font-bold text-xs">${sponsor.name}</span>`;
+                      target.parentElement?.appendChild(fallback);
+                    }}
                   />
                 </a>
               ) : (
@@ -59,6 +69,16 @@ export default function SponsorStrip() {
                     src={sponsor.logo}
                     alt={`${sponsor.name} logo`}
                     className="relative h-8 md:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain filter brightness-90 contrast-110 group-hover:brightness-100 group-hover:contrast-125 transition-all duration-500"
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const fallback = document.createElement('div');
+                      fallback.className = 'h-8 md:h-10 flex items-center justify-center bg-gray-800 rounded-lg px-2';
+                      fallback.innerHTML = `<span class="text-white font-bold text-xs">${sponsor.name}</span>`;
+                      target.parentElement?.appendChild(fallback);
+                    }}
                   />
                 </div>
               )}
