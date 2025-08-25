@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Orbitron } from 'next/font/google';
 import Navigation from '@/components/Navigation';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { SITE_NAME, SITE_DESC, SITE_URL, SOCIAL } from '@/lib/site';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -56,6 +57,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="preload" as="image" href="/wheelie_hero_desktop.jpeg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="icon" href="/favicon.ico" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(athleteLd) }} />
       </head>
@@ -68,7 +72,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <header role="banner"><Navigation /></header>
-        <main id="main-content" role="main" className="pb-16 md:pb-0">{children}</main>
+        <ErrorBoundary>
+          <main id="main-content" role="main" className="pb-16 md:pb-0">{children}</main>
+        </ErrorBoundary>
         <footer role="contentinfo" className="sr-only">Sam Cranstone Racing</footer>
       </body>
     </html>

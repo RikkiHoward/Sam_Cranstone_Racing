@@ -1,0 +1,16 @@
+{
+  "name": "Sam Cranstone Racing",
+  "short_name": "SCR #100",
+  "description": "Professional motorcycle racing • BMCRC Rookie 1000 #100 • 2025 Bemsee MRO. Chasing Victory, Together.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FF3B30",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

@@ -76,6 +76,17 @@ export default function InstagramGrid() {
                   </svg>
                 `);
               }}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = 'data:image/svg+xml;base64,' + btoa(`
+                  <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#1f2937"/>
+                    <text x="50%" y="50%" text-anchor="middle" dy="0.3em" fill="#9ca3af" font-family="Arial" font-size="16">
+                      Instagram thumbnail
+                    </text>
+                  </svg>
+                `);
+              }}
             />
             {/* Overlay + affordance */}
             <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />

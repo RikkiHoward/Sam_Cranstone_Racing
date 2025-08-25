@@ -24,12 +24,15 @@ export default function InstagramEmbed({ url, className, caption }: Props) {
       s.id = LOADER_ID;
       s.async = true;
       s.src = 'https://www.instagram.com/embed.js';
+      s.onerror = () => {
+        console.warn('Instagram embed script failed to load');
+      };
       document.body.appendChild(s);
     }
   }, []);
 
   return (
-    <div className={className}>
+    <div className={`${className || ''} text-center`}>
       <blockquote
         className="instagram-media"
         data-instgrm-permalink={url}
@@ -37,16 +40,16 @@ export default function InstagramEmbed({ url, className, caption }: Props) {
         style={{
           background: '#fff',
           border: 0,
-          borderRadius: 3,
+          borderRadius: 12,
           boxShadow: '0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)',
-          margin: 1,
+          margin: '1rem auto',
           maxWidth: 540,
           minWidth: 326,
           padding: 0,
           width: '100%',
         }}
       >
-        <a href={url} target="_blank" rel="noreferrer" style={{ display: 'block', padding: 16 }}>
+        <a href={url} target="_blank" rel="noopener noreferrer" style={{ display: 'block', padding: 16 }}>
           View this post on Instagram
         </a>
         {caption ? (

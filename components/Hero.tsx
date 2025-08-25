@@ -17,6 +17,18 @@ export default function Hero() {
             src="/wheelie_hero_desktop.jpeg"
             alt="Sam Cranstone racing hero"
             className="w-full h-full object-cover object-center"
+            priority="true"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = 'data:image/svg+xml;base64,' + btoa(`
+                <svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100%" height="100%" fill="#1f2937"/>
+                  <text x="50%" y="50%" text-anchor="middle" dy="0.3em" fill="#9ca3af" font-family="Arial" font-size="24">
+                    Hero image loading...
+                  </text>
+                </svg>
+              `);
+            }}
           />
         </div>
         {/* Mobile background */}
@@ -25,6 +37,18 @@ export default function Hero() {
             src="/Wheelie_mobile.jpeg"
             alt="Sam Cranstone racing hero mobile"
             className="w-full h-full object-cover object-top"
+            priority="true"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = 'data:image/svg+xml;base64,' + btoa(`
+                <svg width="800" height="1200" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100%" height="100%" fill="#1f2937"/>
+                  <text x="50%" y="50%" text-anchor="middle" dy="0.3em" fill="#9ca3af" font-family="Arial" font-size="20">
+                    Mobile hero loading...
+                  </text>
+                </svg>
+              `);
+            }}
           />
         </div>
 
