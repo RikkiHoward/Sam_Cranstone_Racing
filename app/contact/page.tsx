@@ -84,7 +84,7 @@ export default function ContactPage() {
             </h1>
             
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Ready to discuss sponsorship opportunities or have questions about racing? Let's connect.
+              Ready to discuss sponsorship opportunities or have questions about racing? Let&apos;s connect.
             </p>
           </div>
 
