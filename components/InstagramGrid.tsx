@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { useState } from 'react';
 import items from '@/data/instagram.json';
 import { SOCIAL } from '@/lib/site';
 

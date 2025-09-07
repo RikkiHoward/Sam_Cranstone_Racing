@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { useMemo } from 'react';
 import type { ElevationDataset } from '@/types/elevation';
 
 type Props = {
@@ -15,7 +15,36 @@ const W = 860;     // viewBox width
 const H = 260;     // viewBox height
 
 export default function TrackElevation({ slug, dataset, className }: Props) {
-  if (!dataset) {
+  const elevationChart = useMemo(() => {
+    if (!dataset) {
+      return null;
+    }
+
+    const { x, y, length, corners } = dataset;
+
+    // normalize to svg coordinates
+    const minY = Math.min(...y);
+    const maxY = Math.max(...y);
+    const sx = (val: number) => padX + (val / length) * (W - padX * 2);
+    const sy = (val: number) => padY + (1 - (val - minY) / Math.max(1, maxY - minY)) * (H - padY * 2);
+
+    // path
+    const d = x.map((xi, i) => `${i === 0 ? 'M' : 'L'} ${sx(xi)},${sy(y[i])}`).join(' ');
+
+    return {
+      d,
+      sx,
+      sy,
+      x,
+      y,
+      length,
+      corners,
+      minY,
+      maxY
+    };
+  }, [dataset]);
+
+  if (!elevationChart) {
     return (
       <div className={`rounded-2xl border border-gray-800 bg-gray-900/50 p-6 ${className ?? ''}`}>
         <h3 className="mb-2 text-lg font-semibold text-white">Elevation Profile</h3>
@@ -24,16 +53,7 @@ export default function TrackElevation({ slug, dataset, className }: Props) {
     );
   }
 
-  const { x, y, length, corners } = dataset;
-
-  // normalize to svg coordinates
-  const minY = Math.min(...y);
-  const maxY = Math.max(...y);
-  const sx = (val: number) => padX + (val / length) * (W - padX * 2);
-  const sy = (val: number) => padY + (1 - (val - minY) / Math.max(1, maxY - minY)) * (H - padY * 2);
-
-  // path
-  const d = x.map((xi, i) => `${i === 0 ? 'M' : 'L'} ${sx(xi)},${sy(y[i])}`).join(' ');
+  const { d, sx, sy, x, y, length, corners, minY, maxY } = elevationChart;
 
   return (
     <div className={`rounded-2xl border border-gray-800 bg-gray-900/50 p-6 ${className ?? ''}`}>

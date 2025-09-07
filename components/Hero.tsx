@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, Handshake, Camera, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import SponsorsMarquee from './SponsorsMarquee';
+import SponsorsMarquee from '@/components/SponsorsMarquee';
 import Link from 'next/link';
 
 export default function Hero() {

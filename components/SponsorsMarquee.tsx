@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 // Direct JSON import for static export
 import sponsorsData from '../app/data/sponsors.json';
