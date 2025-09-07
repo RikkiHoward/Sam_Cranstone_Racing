@@ -51,7 +51,7 @@ export default function SponsorsPage() {
             </h1>
             
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-              We&apos;re proud to work with incredible brands who share our passion for excellence and innovation in motorcycle racing.
+              We&rsquo;re proud to work with incredible brands who share our passion for excellence and innovation in motorcycle racing.
             </p>
 
             <Button asChild size="lg" className="bg-gradient-to-r from-red-500 to-blue-500 hover:from-red-600 hover:to-blue-600 text-white px-8 py-4 text-lg font-semibold rounded-2xl">

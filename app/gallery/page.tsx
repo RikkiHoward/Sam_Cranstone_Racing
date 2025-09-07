@@ -1,3 +1,5 @@
+/* eslint react/no-unescaped-entities: "off" */
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useMemo } from 'react';
