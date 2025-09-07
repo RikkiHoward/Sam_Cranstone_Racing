@@ -154,7 +154,6 @@ export default function SponsorsMarquee() {
                       {sponsor.tagline}
                     </p>
                   </div>
-                  </div>
                 </a>
               </div>
             ))}
