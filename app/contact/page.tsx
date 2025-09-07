@@ -53,7 +53,7 @@ export default function ContactPage() {
             <Send className="text-white" size={24} />
           </div>
           <h1 className="text-3xl font-bold text-white mb-4">Message Sent!</h1>
-          <p className="text-gray-400 mb-6">Thanks for getting in touch. I'll get back to you soon.</p>
+          <p className="text-gray-400 mb-6">Thanks for getting in touch. I&apos;ll get back to you soon.</p>
           <Button 
             onClick={() => setSubmitted(false)}
             variant="outline"
@@ -98,7 +98,7 @@ export default function ContactPage() {
             >
               <div>
                 <h2 className="text-3xl font-bold text-white mb-8 font-orbitron">
-                  Let's Talk Racing
+                  Let&apos;s Talk Racing
                 </h2>
                 
                 <div className="space-y-6">
