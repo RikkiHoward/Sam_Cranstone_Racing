@@ -1,19 +1,5 @@
 [
   {
-    "name": "Fortis Racing",
-    "url": "https://www.fortisracing.co.uk",
-    "logo": "/Fortis-Racing-Logo.avif",
-    "tier": "headline",
-    "tagline": "Performance engineering & race support"
-  },
-  {
-    "name": "Leadbeatters Labour Ltd",
-    "url": "https://www.leadbeatterslabour.co.uk/",
-    "logo": "/Leadbeatters-Labour-Logo.webp",
-    "tier": "associate",
-    "tagline": "Skilled labour & scaffolding specialists"
-  },
-  {
     "name": "Ultra Vision Glazing",
     "url": "https://www.ultravisionglazing.co.uk/",
     "logo": "/ultravision-logo.webp",
