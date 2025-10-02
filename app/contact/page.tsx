@@ -9,7 +9,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, AlertCircle } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -20,6 +21,7 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // Handle search params on client side after hydration
@@ -35,12 +37,30 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setError(null);
+
+    try {
+      const { error: submitError } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            type: formData.type,
+            message: formData.message,
+          }
+        ]);
+
+      if (submitError) throw submitError;
+
       setSubmitted(true);
-    }, 1000);
+      setFormData({ name: '', email: '', type: 'general', message: '' });
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError('Failed to send message. Please try again or email directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -223,6 +243,13 @@ export default function ContactPage() {
                         placeholder="Tell me about your enquiry..."
                       />
                     </div>
+
+                    {error && (
+                      <div className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm">
+                        <AlertCircle size={16} />
+                        <span>{error}</span>
+                      </div>
+                    )}
 
                     <Button
                       type="submit"
