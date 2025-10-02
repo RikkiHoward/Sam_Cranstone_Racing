@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Mail, Phone, MapPin, Send, CircleAlert as AlertCircle } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabase';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -40,6 +40,12 @@ export default function ContactPage() {
     setError(null);
 
     try {
+      const supabase = getSupabase();
+
+      if (!supabase) {
+        throw new Error('Database connection not available');
+      }
+
       const { error: submitError } = await supabase
         .from('contact_submissions')
         .insert([
