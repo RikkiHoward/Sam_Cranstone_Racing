@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Home, Calendar, Bike, Users, Camera, Mail, Navigation as NavigationIcon, Trophy, Handshake } from 'lucide-react';
+import { Chrome as Home, Calendar, Bike, Users, Camera, Mail, Navigation as NavigationIcon, Trophy, Handshake } from 'lucide-react';
 
 const desktopNavigationItems = [
   { name: 'Home', href: '/', icon: Home },
